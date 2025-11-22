@@ -44,10 +44,10 @@
   postgresql_set:
     name: max_wal_senders
     value: '8'
-- name: Configure wal_keep_segments parameter
+- name: Configure wal_keep_size parameter
   postgresql_set:
-    name: wal_keep_segments
-    value: '8'
+    name: wal_keep_size
+    value: '128'
 - name: Configure hot_standby parameter
   postgresql_set:
     name: hot_standby
