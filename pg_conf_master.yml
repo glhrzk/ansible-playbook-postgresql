@@ -26,8 +26,7 @@
     name: "{{ repl_user }}"
     password: "{{ 'md5' + ((repl_passwd + repl_user) | hash('md5')) }}"
     role_attr_flags: REPLICATION
-    priv: ALL
-    db: postgres
+    login_db: postgres
 - name: Configure DBs to listen on ip address
   postgresql_set:
     name: listen_addresses
