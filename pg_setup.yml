@@ -23,7 +23,7 @@
     when: inventory_hostname in groups['db_slaves']
     become_user: postgres
     vars:
-      master_host: "{{ hostvars[groups.db_master[0]].ansible_facts.default_ipv4.address }}"
+      master_host: "{{ hostvars[groups.db_master[0]].ansible_host }}"
   handlers:
   - name: Restart Linux server
     reboot:

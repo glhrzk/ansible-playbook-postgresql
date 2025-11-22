@@ -7,7 +7,7 @@
     block: |
       # hostname:port:database:username:password
       {% for host in groups['db_hosts'] %}
-      {{ hostvars[host]['ansible_facts']['default_ipv4']['address'] + ':5432:replication:' + repl_user + ':' + repl_passwd}}
+      {{ hostvars[host]['ansible_host'] + ':5432:replication:' + repl_user + ':' + repl_passwd}}
       {% endfor %}
 - name: Stop database
   systemd:
@@ -47,5 +47,5 @@
 - name: Configure DBs to listen on ip address
   postgresql_set:
     name: listen_addresses
-    value: '*'
+    value: 'localhost,{{ ansible_host }}'
   notify: Restart database

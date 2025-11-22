@@ -31,7 +31,7 @@
 - name: Configure DBs to listen on ip address
   postgresql_set:
     name: listen_addresses
-    value: '*'
+    value: 'localhost,{{ ansible_host }}'
   notify: Restart database
 - name: Configure wal_level parameter
   postgresql_set:
