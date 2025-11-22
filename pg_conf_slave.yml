@@ -47,5 +47,5 @@
 - name: Configure DBs to listen on ip address
   postgresql_set:
     name: listen_addresses
-    value: 'localhost,{{ ansible_host }}'
+    value: '*'
   notify: Restart database
