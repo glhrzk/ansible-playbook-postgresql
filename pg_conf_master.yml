@@ -6,7 +6,7 @@
 - name: Stop database if running
   systemd:
     state: stopped
-    name: postgresql
+    name: postgresql@18-main
   become_user: root
   when: init_status.stat.exists == False
 - name: Initialize the master database
@@ -19,7 +19,7 @@
 - name: Start database
   systemd:
     state: started
-    name: postgresql
+    name: postgresql@18-main
   become_user: root
 - name: Create replication user, set MD5-hashed password, grant privs
   postgresql_user:

@@ -12,7 +12,7 @@
 - name: Stop database
   systemd:
     state: stopped
-    name: postgresql
+    name: postgresql@18-main
   become_user: root
 - name: Remove data
   file:
@@ -33,7 +33,7 @@
 - name: Start database
   systemd:
     state: started
-    name: postgresql
+    name: postgresql@18-main
   become_user: root
 - name: Wait for postgres to listen on port 5432
   wait_for:

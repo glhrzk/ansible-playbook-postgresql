@@ -29,5 +29,5 @@
 
 - name: Enable database service on boot
   systemd:
-    name: postgresql
+    name: postgresql@18-main
     enabled: yes

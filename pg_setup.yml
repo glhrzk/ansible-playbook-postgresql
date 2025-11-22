@@ -30,4 +30,4 @@
   - name: Restart database
     systemd:
       state: restarted
-      name: postgresql
+      name: postgresql@18-main
